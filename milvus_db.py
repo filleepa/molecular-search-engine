@@ -7,7 +7,7 @@ connections.connect(host=MILVUS_HOST, port=MILVUS_PORT)
 
 def create_milvus_collection(collection_name, dim):
     if utility.has_collection(collection_name):
-        utility.drop_collection(collection_name)
+        return Collection(name=collection_name)
         
     fields = [
         FieldSchema(name="id", dtype=DataType.INT64, description="ids", is_primary=True, auto_id=False),
